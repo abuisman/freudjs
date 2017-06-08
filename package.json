@@ -1,0 +1,32 @@
+{
+  "name": "freud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/freud.js",
+  "module": "src/freud.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --colors ./spec/*.js",
+    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./spec/*.js",
+    "build": "WEBPACK_ENV=build webpack",
+    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch"
+  },
+  "keywords": [
+    "component",
+    "DOM",
+    "vanilla-js"
+  ],
+  "author": "Achilleas Buisman",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.0.2",
+    "jasmine": "^2.6.0",
+    "jasmine-core": "^2.6.3",
+    "mocha": "^3.4.2",
+    "webpack": "^2.6.1"
+  }
+}
