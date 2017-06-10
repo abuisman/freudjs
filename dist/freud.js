@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("freud", [], factory);
+		define("Freud", [], factory);
 	else if(typeof exports === 'object')
-		exports["freud"] = factory();
+		exports["Freud"] = factory();
 	else
-		root["freud"] = factory();
+		root["Freud"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -80,105 +80,163 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var default_options = {
-  behaviourKey: 'behaviours'
-};
-
-var normalize_behaviours = function normalize_behaviours(behaviours) {
-  if (!behaviours) {
-    return [];
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports !== "undefined") {
+    factory(module, exports);
+  } else {
+    var mod = {
+      exports: {}
+    };
+    factory(mod, mod.exports);
+    global.freud = mod.exports;
   }
-
-  try {
-    behaviours = JSON.parse(behaviours);
-  } catch (e) {
-    behaviours = behaviours;
-
-    if ((typeof behaviours === 'undefined' ? 'undefined' : _typeof(behaviours)) != 'object') {
-      behaviours = [behaviours];
+})(this, function (module, exports) {
+  (function (global, factory) {
+    if (true) {
+      !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports !== "undefined") {
+      factory(module, exports);
+    } else {
+      var mod = {
+        exports: {}
+      };
+      factory(mod, mod.exports);
+      global.freud = mod.exports;
     }
-  }
-  return behaviours;
-};
+  })(this, function (module, exports) {
+    'use strict';
 
-var Freud = function () {
-  function Freud() {
-    _classCallCheck(this, Freud);
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
 
-    this.behaviours = {};
-  }
+    function _classCallCheck(instance, Constructor) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError("Cannot call a class as a function");
+      }
+    }
 
-  _createClass(Freud, [{
-    key: 'init',
-    value: function init() {
-      var _this = this;
+    var _createClass = function () {
+      function defineProperties(target, props) {
+        for (var i = 0; i < props.length; i++) {
+          var descriptor = props[i];
+          descriptor.enumerable = descriptor.enumerable || false;
+          descriptor.configurable = true;
+          if ("value" in descriptor) descriptor.writable = true;
+          Object.defineProperty(target, descriptor.key, descriptor);
+        }
+      }
 
-      var selector_or_dom = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      return function (Constructor, protoProps, staticProps) {
+        if (protoProps) defineProperties(Constructor.prototype, protoProps);
+        if (staticProps) defineProperties(Constructor, staticProps);
+        return Constructor;
+      };
+    }();
 
-      var options = Object.assign({}, default_options, options);
-      var target_attr = 'data-' + options['behaviourKey'];
-      var targets = document.querySelectorAll('[' + target_attr + ']');
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+      return typeof obj;
+    } : function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
 
-      targets.forEach(function (target) {
-        var el_behaviours = normalize_behaviours(target.dataset[options['behaviourKey']]);
+    var default_options = {
+      behaviourKey: 'behaviours'
+    };
 
-        el_behaviours.forEach(function (behaviour_name) {
-          if (!target.dataset['loaded_behaviour_' + behaviour_name]) {
-            target.dataset['loaded_behaviour_' + behaviour_name] = true;
+    var normalize_behaviours = function normalize_behaviours(behaviours) {
+      if (!behaviours) {
+        return [];
+      }
 
-            if (_this.behaviours[behaviour_name]) {
-              new _this.behaviours[behaviour_name](target);
-            }
+      try {
+        behaviours = JSON.parse(behaviours);
+      } catch (e) {
+        behaviours = behaviours;
+
+        if ((typeof behaviours === 'undefined' ? 'undefined' : _typeof(behaviours)) != 'object') {
+          behaviours = [behaviours];
+        }
+      }
+      return behaviours;
+    };
+
+    var Freud = function () {
+      function Freud() {
+        _classCallCheck(this, Freud);
+
+        this.behaviours = {};
+      }
+
+      _createClass(Freud, [{
+        key: 'init',
+        value: function init() {
+          var _this = this;
+
+          var selector_or_dom = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+          var options = Object.assign({}, default_options, options);
+          var target_attr = 'data-' + options['behaviourKey'];
+          var targets = document.querySelectorAll('[' + target_attr + ']');
+
+          targets.forEach(function (target) {
+            var el_behaviours = normalize_behaviours(target.dataset[options['behaviourKey']]);
+
+            el_behaviours.forEach(function (behaviour_name) {
+              if (!target.dataset['loaded_behaviour_' + behaviour_name]) {
+                target.dataset['loaded_behaviour_' + behaviour_name] = true;
+
+                if (_this.behaviours[behaviour_name]) {
+                  new _this.behaviours[behaviour_name](target);
+                }
+              }
+            });
+          });
+
+          return targets;
+        }
+      }, {
+        key: 'register',
+        value: function register(behaviour_or_name) {
+          var behaviour = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+          if (typeof behaviour_or_name == 'function') {
+            var name = behaviour_or_name.name;
+            var behaviour = behaviour;
+          } else {
+            var name = behaviour_or_name;
+            var behaviour = behaviour;
           }
-        });
-      });
 
-      return targets;
-    }
-  }, {
-    key: 'register',
-    value: function register(behaviour_or_name) {
-      var behaviour = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+          this.behaviours[name] = behaviour;
+        }
+      }, {
+        key: 'ready',
+        value: function ready(fn) {
+          if (document.readyState != 'loading') {
+            fn();
+          } else {
+            document.addEventListener('DOMContentLoaded', fn);
+          }
+        }
+      }]);
 
-      if (typeof behaviour_or_name == 'function') {
-        var name = behaviour_or_name.name;
-        var behaviour = behaviour;
-      } else {
-        var name = behaviour_or_name;
-        var behaviour = behaviour;
-      }
+      return Freud;
+    }();
 
-      this.behaviours[name] = behaviour;
-    }
-  }, {
-    key: 'ready',
-    value: function ready(fn) {
-      if (document.readyState != 'loading') {
-        fn();
-      } else {
-        document.addEventListener('DOMContentLoaded', fn);
-      }
-    }
-  }]);
-
-  return Freud;
-}();
-
-exports.default = new Freud();
+    exports.default = new Freud();
+    module.exports = exports['default'];
+  });
+});
 
 /***/ })
 /******/ ]);

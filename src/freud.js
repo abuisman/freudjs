@@ -67,4 +67,4 @@ class Freud {
   }
 }
 
-export default (new Freud);
+export default new Freud;
