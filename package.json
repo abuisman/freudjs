@@ -1,5 +1,5 @@
 {
-  "name": "freud",
+  "name": "freudjs",
   "version": "1.0.0",
   "description": "Simple component-like javascript library for when you don't need React, Vue, etc.",
   "main": "dist/freud.js",

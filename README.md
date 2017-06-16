@@ -1,4 +1,5 @@
-# freud
+# FreudJS
+
 Master: [![Build Status](https://travis-ci.org/abuisman/freudjs.svg?branch=master)](https://travis-ci.org/abuisman/freudjs)
 
 ![sigmund](https://cloud.githubusercontent.com/assets/27729/9395534/56b81cd0-478f-11e5-9543-7d0afaa5a855.jpg)
@@ -11,7 +12,7 @@ Add behaviours to DOM elements, somewhat like components. These are simple Javas
 
 A behaviour is a simple class with a constructor that gets passed the element they are applied to. That class can then do all sorts of magical and not so magical things with that element.
 
-This concept started out as a jQuery library I built a few years ago ([abuisman/jquery-freud](https://github.com/abuisman/jquery-freud/)). Nowadays I found myself not wanting to introduce jQuery in new projects, but also not wanting to setup using bigger UI libraries like React and Vue. I therefore revamped the freud concept into this VanillaJS incarnation. 
+This concept started out as a jQuery library I built a few years ago ([abuisman/jquery-freud](https://github.com/abuisman/jquery-freud/)). Nowadays I found myself not wanting to introduce jQuery in new projects, but also not wanting to setup using bigger UI libraries like React and Vue. I therefore revamped the freud concept into this VanillaJS incarnation.
 
 ## An example (ES6)
 
@@ -33,13 +34,13 @@ class IncreaseCount {
 }
 ````
 
-For brevity the above code is in ES6, but you can use any class you want. Freud creates an instance like this: `new behaviour(element, options = {})`.
+For brevity the above code is in ES6, but you can use any class you want. FreudJS creates an instance like this: `new behaviour(element, options = {})`.
 
-You can now tell Freud about the behaviour like so:
+You can now tell FreudJS about the behaviour like so:
 
 `Freud.register(IncreaseCount)`
 
-Freud now knows this behaviour as 'IncreaseCount'. If you want to use a different name you can do:
+FreudJS now knows this behaviour as 'IncreaseCount'. If you want to use a different name you can do:
 
 `Freud.register('OtherName', IncreaseCount)`
 
@@ -75,7 +76,7 @@ By default behaviours can be applied to an element by setting a `data` attribute
 
 ### Passing behaviours to freud()
 
-Alternatively you may pass data-attributes to freud by passing an array to freud when selecting elements:
+Alternatively you may pass data-attributes to FreudJS by passing an array to FreudJS when selecting elements:
 
 ````
 -- HTML:
@@ -123,7 +124,7 @@ Apply more than one behaviour to the same element by passing a JSON array as the
   Freud.init()
 ````
 
-You can also apply many behaviours through passing behaviours through the freud function:
+You can also apply many behaviours through passing behaviours through the FreudJS function:
 
 ````
 -- HTML:
@@ -133,7 +134,7 @@ You can also apply many behaviours through passing behaviours through the freud 
   Freud.init(document.querySelector('.greeting-card'), { behaviours: ['greetingCard', 'anotherBehaviour'] });
 ````
 
-### Example uses
+## Example uses
 
 Some things that I have used behaviours for:
 
@@ -149,11 +150,11 @@ If you find any bugs or issues please create a ticket here (on github). If you h
 
 ## Contributing
 
-With regards to bugs and issues, or when you find a killer feature for Freud please consider contributing.
+With regards to bugs and issues, or when you find a killer feature for FreudJS please consider contributing.
 
 ### Webpack
 
-Freud is written in ES6. You can edit the file in `src` and build it by running the command `npm run build`. Open `spec/test.html` in order to run the specs in your browser and have the library available to you during development. In which case running `npm run dev` is probably useful as it will compile the `freud.js` version for you continuously as you make changes.
+FreudJS is written in ES6. You can edit the file in `src` and build it by running the command `npm run build`. Open `spec/test.html` in order to run the specs in your browser and have the library available to you during development. In which case running `npm run dev` is probably useful as it will compile the `freud.js` version for you continuously as you make changes.
 
 Just make sure to add tests and build both the dev and minimal version with `npm run build` when you are done.
 
