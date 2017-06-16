@@ -4,6 +4,7 @@ var path = require('path');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var env = process.env.WEBPACK_ENV;
 var libraryName = 'Freud';
+var inputFile = 'freud.js'
 var outputFile = 'freud.js';
 var plugins = [], outputFile;
 
@@ -15,7 +16,7 @@ if (env === 'build') {
 }
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src') + '/' + outputFile,
+  entry: path.resolve(__dirname, 'src') + '/' + inputFile,
   output: {
     filename: outputFile,
     path: path.resolve(__dirname, 'dist'),
@@ -33,8 +34,9 @@ module.exports = {
         options: {
           presets: [
             'es2015',
+            'stage-3',
           ],
-          plugins: ["add-module-exports", "transform-es2015-modules-umd"]
+          plugins: ["loop-optimizer", "add-module-exports", "transform-es2015-modules-umd"]
         }
       }
     }

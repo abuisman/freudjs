@@ -6,6 +6,28 @@
   </head>
   <body>
     <div id="mocha"></div>
+
+    <div class='first_target' data-behaviours='["TestBehaviour"]'>
+      Not applied
+    </div>
+
+    <div id="second_element" data-behaviours='["TestBehaviour", "TestBehaviour2"]'>
+      Also not applied
+    </div>
+    <div id="third_element" data-behaviours='["TestBehaviour3"]'>The third</div>
+
+    <div id="different_name" data-behaviours='["James"]'>Ian Fleming</div>
+
+    <div id="other_key" data-custom-key='["TestBehaviour", "TestBehaviour2"]'>Skeleton key</div>
+
+    <div id="options_passed" data-option-check='["OptionsPasser"]' data-should="Be in options">Alt</div>
+
+    <div id="inline_delcared" data-behaviours='["PassedInline"]'>Neuro</div>
+
+    <div id="match_me_tender">Match me sweet</div>
+
+    <div id='select_me' data-selected='["Selected"]'>Selected</div>
+
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
     <script>
@@ -17,5 +39,6 @@
     <script>
       mocha.run()
     </script>
+
   </body>
 </html>
