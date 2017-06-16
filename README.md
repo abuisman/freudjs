@@ -1,4 +1,5 @@
 # freud
+Master: [![Build Status](https://travis-ci.org/abuisman/freudjs.svg?branch=master)](https://travis-ci.org/abuisman/freudjs)
 
 ![sigmund](https://cloud.githubusercontent.com/assets/27729/9395534/56b81cd0-478f-11e5-9543-7d0afaa5a855.jpg)
 
