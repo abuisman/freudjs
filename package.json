@@ -1,7 +1,7 @@
 {
   "name": "freud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple component-like javascript library for when you don't need React, Vue, etc.",
   "main": "dist/freud.js",
   "module": "src/freud.js",
   "scripts": {
@@ -16,6 +16,10 @@
   ],
   "author": "Achilleas Buisman",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abuisman/freud.git"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
