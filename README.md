@@ -10,6 +10,8 @@ Add behaviours to DOM elements, somewhat like components. These are simple Javas
 
 A behaviour is a simple class with a constructor that gets passed the element they are applied to. That class can then do all sorts of magical and not so magical things with that element.
 
+This concept started out as a jQuery library I built a few years ago ([abuisman/jquery-freud](https://github.com/abuisman/jquery-freud/)). Nowadays I found myself not wanting to introduce jQuery in new projects, but also not wanting to setup using bigger UI libraries like React and Vue. I therefore revamped the freud concept into this VanillaJS incarnation. 
+
 ## An example (ES6)
 
 ````
