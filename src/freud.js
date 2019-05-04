@@ -54,7 +54,7 @@ class Freud {
   }
 
   init(selector_or_dom = null, options = {}) {
-    var options = { ...default_options, ...options };
+    options = { ...default_options, ...options };
     var targets = getTargets(selector_or_dom, options) || [];
 
     targets.forEach((target) => {
@@ -81,13 +81,13 @@ class Freud {
 
     if (typeof behaviour_or_name == 'function') {
       var name = behaviour_or_name.name;
-      var behaviour = behaviour_or_name;
+      behaviour = behaviour_or_name;
     } else {
       if(!behaviour || (typeof behaviour != 'function') ) {
         throw("Freud.register called without a behaviour or behaviour type is invalid");
       }
       var name = behaviour_or_name;
-      var behaviour = behaviour;
+      behaviour = behaviour;
     }
 
     this.behaviours[name] = behaviour;
