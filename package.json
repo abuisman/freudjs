@@ -1,13 +1,16 @@
 {
   "name": "freudjs",
-  "version": "1.3.0",
+  "version": "3.0.0",
   "description": "Simple component-like javascript library for when you don't need React, Vue, etc.",
   "main": "dist/freud.js",
   "module": "src/freud.js",
   "scripts": {
-    "test": "mocha-phantomjs -p /usr/local/bin/phantomjs -R dot spec/test.html",
-    "build": "WEBPACK_ENV=build webpack --progress --colors && WEBPACK_ENV=dev webpack --progress --colors",
-    "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch"
+    "dist-clean": "rm -rf ./dist | exit 0",
+    "dev": "parcel serve spec/test.html",
+    "build": "yarn run dist-clean && parcel build src/freud.js",
+    "clean-test": "rm -rf ./dist_test | exit 0",
+    "test-build": "yarn clean-test && NODE_ENV=production parcel build src/freud.js -d ./dist_test && NODE_ENV=production parcel build --no-minify spec/test.html --public-url './' -d ./dist_test",
+    "test": "yarn test-build && mocha-headless-chrome -f ./dist_test/test.html"
   },
   "keywords": [
     "component",
@@ -21,21 +24,16 @@
     "url": "https://github.com/abuisman/freud.git"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.5",
-    "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-loop-optimizer": "^1.4.1",
-    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.2.0",
     "jasmine": "^3.4.0",
     "jasmine-core": "^3.4.0",
     "mocha": "^6.1.4",
+    "mocha-headless-chrome": "^2.0.2",
     "mocha-phantomjs": "^4.1.0",
-    "phantomjs-polyfill-object-assign": "0.0.2",
-    "webpack": "^4.30.0"
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "mocha-chrome": "^2.0.0"
   }
 }

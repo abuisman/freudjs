@@ -3,6 +3,7 @@
     <meta charset="utf-8">
     <!-- encoding must be set for mocha's special characters to render properly -->
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+
   </head>
   <body>
     <div id="mocha"></div>
@@ -27,18 +28,15 @@
     <div id="match_me_tender">Match me sweet</div>
 
     <div id='select_me' data-selected='["Selected"]'>Selected</div>
-
-    <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
-    <script>
-      mocha.ui('bdd')
-      expect = chai.expect
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script class='mochasetup'>
+      mocha.setup('bdd');
+      mocha.checkLeaks();
     </script>
-    <script src="../dist/freud.js"></script>
     <script src="FreudSpec.js"></script>
-    <script>
+    <script class='mocharun'>
       mocha.run()
     </script>
-
   </body>
 </html>

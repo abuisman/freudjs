@@ -5,11 +5,8 @@
  * Inspired by: https://github.com/tomtomau/jquery-big-youtube
  */
 
-describe("Basic bootstrapping", function(){
-  it("creates global object named Freud", function(){
-    expect(typeof window.Freud).to.equal("object")
-  });
-});
+import Freud from '../dist_test/freud.js';
+import { expect } from 'chai';
 
 /**
  * Testing top function responses
@@ -44,7 +41,7 @@ describe("Freud.register", function(){
 
 describe("Applying behaviours to elements", function(){
   it('First element only has the first behaviour applied', function(){
-    first = document.querySelector('.first_target')
+    let first = document.querySelector('.first_target')
 
     expect(first.innerText).to.equal('TestBehaviour was applied');
     expect(first.dataset['loaded_behaviour_TestBehaviour']).to.equal('true');
@@ -79,7 +76,7 @@ describe("Applying behaviours to elements", function(){
   it('Applies options passed to freud when instantiating and data-attributes', function(){
     expect(options_passed.dataset['loaded_behaviour_OptionsPasser']).to.not.equal(undefined);
 
-    dataOptions = JSON.parse(options_passed.dataset['optionsPassed']);
+    let dataOptions = JSON.parse(options_passed.dataset['optionsPassed']);
     expect(dataOptions['should']).to.equal("Be in options");
     expect(dataOptions['behaviourKey']).to.equal("optionCheck");
     expect(dataOptions['test']).to.equal("option");
