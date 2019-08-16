@@ -1,6 +1,6 @@
 {
   "name": "freudjs",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Simple component-like javascript library for when you don't need React, Vue, etc.",
   "main": "dist/freud.js",
   "module": "src/freud.js",
