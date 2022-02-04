@@ -16,7 +16,7 @@ This concept started out as a jQuery library I built a few years ago ([abuisman/
 
 ## An example (ES6)
 
-````
+```js
 class IncreaseCount {
   constructor(element, options) {
     this.element = element;
@@ -32,7 +32,7 @@ class IncreaseCount {
     this.element.querySelector('.count').innerText = this.count;
   }
 }
-````
+```
 
 For brevity the above code is in ES6, but you can use any class you want. FreudJS creates an instance like this: `new behaviour(element, options = {})`.
 
@@ -46,7 +46,7 @@ FreudJS now knows this behaviour as 'IncreaseCount'. If you want to use a differ
 
 Of course you can also directly declare the behaviour as you pass it to freud:
 
-````
+```js
 Freud.register(
   class OttoLoewi {
     constructor(element, options = {}) {
@@ -54,7 +54,7 @@ Freud.register(
     }
   }
 )
-````
+```
 
 ## Applying behaviours
 
